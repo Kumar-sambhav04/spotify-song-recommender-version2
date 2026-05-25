@@ -1,1 +1,2 @@
 *.pkl filter=lfs diff=lfs merge=lfs -text
+songs.pkl filter=lfs diff=lfs merge=lfs -text
