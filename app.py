@@ -48,6 +48,9 @@ def recommendar(song):
     song = song.lower().strip()
 
     match_song = df[df["track_name"].str.lower().str.strip() == song]
+    if match_song.empty:
+        return []
+
 
     song_index = int(match_song.index[0])
 
@@ -62,7 +65,7 @@ def recommendar(song):
         "song_name" : df.iloc[el]["track_name"],
         "song_track_id" : df.iloc[el]["track_id"],
         "artist_name" : df.iloc[el]["artists"],
-        "spotify_link" : f"https://open.spotify.com/track/{df.iloc[el]["track_id"]}"}
+        "spotify_link" : f"https://open.spotify.com/track/{df.iloc[el]['track_id']}"}
         )
 
     return recommended_songlist
